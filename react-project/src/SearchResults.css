@@ -1,0 +1,26 @@
+#search-results-container {
+  width: 90vw;
+  margin-left: 5vw;
+  min-height: 80vh;
+  margin-top: 11vh;
+
+  border-radius: 25px;
+
+  background-color: lightgray;
+}
+
+.search-result {
+  display: inline-block;
+  width: 23%;
+  height: 15%;
+  margin: 0.5% 1%;
+
+  background-color: cadetblue;
+  text-align: center;
+}
+
+.search-result-avatar {
+  width: 80%;
+  height: 75%;
+  margin: 5% 0 0 10%;
+}

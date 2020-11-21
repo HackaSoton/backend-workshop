@@ -1,0 +1,19 @@
+#search-container {
+  height: 10vh;
+  width: 100vw;
+  background-color: white;
+  border-bottom: 1px solid black;
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-bar {
+  height: 25%;
+  width: 30%;
+  text-align: center;
+}
