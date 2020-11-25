@@ -5,8 +5,10 @@ import multer from 'multer'
 import { Storage } from '@google-cloud/storage'
 import { searchCelebrities, createCelebrity } from './controllers/celebrity'
 
+const PORT = process.env.PORT ?? 3000
+const DB_URL = process.env.DB_URL ?? 'mongodb://localhost/test'
+
 const upload = multer({ storage: multer.memoryStorage() })
-const projectId = 'hackasoton-workshops'
 const bucketName = 'backend-workshop-testing'
 const storage = new Storage({
   keyFilename: './workshop-keyfile.json'
@@ -15,7 +17,7 @@ const bucket = storage.bucket(bucketName)
 
 
 async function main() {
-  await mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true})
+  await mongoose.connect(DB_URL, {useNewUrlParser: true})
 
   // const celeb = new Celebrity({
   //   name: 'dan',
@@ -37,11 +39,11 @@ async function main() {
 
   app.post('/celebrity', upload.single('avatar'), createCelebrity({ bucket, bucketName }))
 
-  app.listen(3000, (err) => {
+  app.listen(PORT, (err) => {
     if (err) {
       console.log(err)
     }
-    console.log("App is listening on port 3000")
+    console.log(`App is listening on port ${PORT}`)
   })
 }
 
