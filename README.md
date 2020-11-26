@@ -10,7 +10,7 @@ npm ci
 npm run dev
 ```
 
-**Note: You will need mongo installed and running on your machine.**
+_Note: You will need mongo installed and running on your machine._
 
 Frontend:
 
@@ -20,7 +20,7 @@ npm ci
 npm start
 ```
 
-**Note: You will need the API running, otherwise the frontend will not work.**
+_Note: You will need the API running, otherwise the frontend will not work._
 
 ## Deployment
 
@@ -33,7 +33,7 @@ npm run build
 gcloud app deploy
 ```
 
-**Note: You need to be authenticated to use `gcloud` commands. Try running `gcloud auth login`.**
+_Note: You need to be authenticated to use `gcloud` commands. Try running `gcloud auth login`._
 
 Frontend:
 
