@@ -5,9 +5,9 @@ export default function SearchResults({ searchResults }) {
       <div id="search-results-container">
         {
           searchResults.map((celebrity) => (
-            <div className="search-result">
-              <img className="search-result-avatar" src={celebrity.avatar} />
-              <p>{ celebrity.label }</p>
+            <div className="search-result" key={celebrity._id}>
+              <img className="search-result-avatar" src={celebrity.avatarPath} />
+              <p>{ celebrity.name }</p>
             </div>
           ))
         }

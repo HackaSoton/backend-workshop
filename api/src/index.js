@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import express from 'express'
+import cors from 'cors'
 import bodyParser from 'body-parser'
 import multer from 'multer'
 import { Storage } from '@google-cloud/storage'
@@ -33,6 +34,7 @@ async function main() {
 
   const app = express()
 
+  app.use(cors())
   app.use(bodyParser.json())
 
   app.get('/celebrity', searchCelebrities)

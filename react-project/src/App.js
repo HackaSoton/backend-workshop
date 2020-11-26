@@ -1,31 +1,44 @@
-import { useState } from 'react'
-import SearchBar from './SearchBar'
-import SearchResults from './SearchResults'
+import { useState, useEffect } from 'react'
+import http from './httpClient'
+import SearchBar from './components/SearchBar'
+import SearchResults from './components/SearchResults'
 
-import { getCelebrities } from './celebrities'
-import { addAvatars } from './avatars'
-
-const celebrities = addAvatars(getCelebrities())
 
 function App() {
-  const [searchString, setSearchString] = useState("")
+  const [celebrities, setCelebrities] = useState([])
+
+  useEffect(() => {
+    async function fetchCelebrities() {
+      const res = await http.get('/celebrity')
+      setCelebrities(res.data)
+    }
+    fetchCelebrities()
+  }, [])
 
   return (
     <>
-      <SearchBar setSearchString={setSearchString} />
-      <SearchResults searchResults={search(searchString)} />
+      <SearchBar searchFn={updateCelebrities(setCelebrities)} />
+      <SearchResults searchResults={celebrities} />
     </>
   );
 }
 
-function search(searchString) {
-  const stringToFind = searchString.trim().toLowerCase()
-
-  const searchResults = celebrities.filter(
-    (celebrity) => celebrity.label.toLowerCase().indexOf(stringToFind) !== -1
-  )
-
-  return searchResults
+function updateCelebrities(setCelebrities) {
+  let updateTimeout
+  return (searchString) => {
+    if (updateTimeout) {
+      clearTimeout(updateTimeout)
+    }
+    updateTimeout = setTimeout(async () => {
+      const res = await http.get('/celebrity', {
+        params: {
+          name: searchString
+        }
+      }) 
+      updateTimeout = undefined
+      setCelebrities(res.data)
+    }, 50)
+  }
 }
 
 export default App;
