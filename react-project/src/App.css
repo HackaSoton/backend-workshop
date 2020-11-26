@@ -1,0 +1,9 @@
+#app-header {
+  height: 10vh;
+  width: 100vw;
+  background-color: white;
+  border-bottom: 1px solid black;
+
+  position: fixed;
+  top: 0;
+}

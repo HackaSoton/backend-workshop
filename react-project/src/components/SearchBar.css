@@ -1,19 +1,8 @@
-#search-container {
-  height: 10vh;
-  width: 100vw;
-  background-color: white;
-  border-bottom: 1px solid black;
-
-  position: fixed;
-  top: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #search-bar {
-  height: 25%;
+  height: 2.5vh;
   width: 30%;
+  margin-left: 35%;
+  margin-top: 1vh;
+
   text-align: center;
 }

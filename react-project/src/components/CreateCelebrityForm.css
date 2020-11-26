@@ -1,0 +1,21 @@
+#create-celebrity-form {
+  height: 2.5vh;
+  width: 100%;
+  margin-top: 1.5vh;
+
+  display: flex;
+  justify-content: center;
+}
+
+#create-celebrity-name {
+  width: 37.5%;
+}
+
+#create-celebrity-avatar {
+  width: 40%;
+  margin-left: 2%;
+}
+
+#create-celebrity-button {
+  width: 15%;
+}
